@@ -132,7 +132,7 @@ const SignUp = () => {
           <h4 className="h4">⚡ Cadastre-se</h4>
           <div>
             <span className="span">
-              👋🏻 Comece seu <b>teste GRATUITO</b> de 3 dias do Equipechat em
+              👋🏻 Comece seu <b>teste GRATUITO</b> de 3 dias do Connectar em
               apenas 3 etapas!{" "}
               <b>Não se preocupe, nós não pedimos dados do seu cartão.</b> 💳
             </span>
@@ -274,7 +274,7 @@ const SignUp = () => {
           <p className="p">
             Copyright ©{" "}
             <a href={"#"} target={"_blank"}>
-              Equipechat{""}
+              Connectar{""}
             </a>{" "}
             2024{" "}
           </p>
