@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   paper: {
-    backgroundColor: theme.palette.login, //DARK MODE PLW DESIGN//
+    backgroundColor: theme.palette.login, //MODO OSCURO DISEÑO PLW//
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: "80%", // Fix IE 11 issue.
+    width: "80%", // Solución para el problema de IE 11.
     marginTop: theme.spacing(1),
     paddingTop: "20px",
     display: "flex",
@@ -64,11 +64,11 @@ const useStyles = makeStyles((theme) => ({
     "&.MuiButton-root": {
       margin: "20px 0px 16px",
       backgroundColor: "rgb(52, 137, 255)",
-      borderRadius: " 30px",
+      borderRadius: "30px",
     },
     "&:hover": {
       backgroundColor: "#285ec9",
-      // boxShadow: "none",
+      // sin sombra,
     },
 
     backgroundColor: "rgb(52, 137, 255)",
@@ -119,13 +119,13 @@ const Login = () => {
             2024{" "}
           </p>
           <p>
-            Este site é protegido pelo reCAPTCHA Enterprise e pela{" "}
+            Este sitio está protegido por reCAPTCHA Enterprise y las{" "}
             <a href={"https://policies.google.com/privacy"} target={"_blank"}>
-              Política de Privacidade
+              Políticas de Privacidad de Google
             </a>{" "}
-            do Google e pelos{" "}
+            y los{" "}
             <a href={"https://policies.google.com/terms"} target={"_blank"}>
-              Termos de Serviço
+              Términos de Servicio
             </a>
           </p>
         </div>
@@ -143,7 +143,7 @@ const Login = () => {
               to="/signup"
               style={{ textDecoration: "none" }}
             >
-              <span className={"label-text"}>Criar conta</span>
+              <span className={"label-text"}>Crear cuenta</span>
             </Link>
             <a
               className={"link-enter"}
@@ -210,7 +210,7 @@ const Login = () => {
                   component={RouterLink}
                   to="/recovery-password"
                 >
-                  {i18n.t("Recuperar Senha?")}
+                  {i18n.t("¿Recuperar Contraseña?")}
                 </Link>
               </Grid>
             </Grid>
@@ -227,13 +227,13 @@ const Login = () => {
           </form>
           <div className={"container-footer-form"}>
             <p>
-              Ao prosseguir, você concorda com nossos{" "}
+              Al continuar, aceptas nuestros{" "}
               <a className={"termo"} href={"/term"} target={"_blank"}>
-                Termos de Serviço{""}
+                Términos de Servicio{""}
               </a>{" "}
-              e{" "}
+              y{" "}
               <a className={"politica"} href={"/privacy"} target={"_blank"}>
-                Política de Privacidade
+                Política de Privacidad
               </a>
             </p>
           </div>
