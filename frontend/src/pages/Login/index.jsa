@@ -119,13 +119,13 @@ const Login = () => {
             2024{" "}
           </p>
           <p>
-            Este site é protegido pelo reCAPTCHA Enterprise e pela{" "}
+            This site is protected by reCAPTCHA Enterprise and the Google{" "}
             <a href={"https://policies.google.com/privacy"} target={"_blank"}>
-              Política de Privacidade
+              Privacy Policy
             </a>{" "}
-            do Google e pelos{" "}
+            and{" "}
             <a href={"https://policies.google.com/terms"} target={"_blank"}>
-              Termos de Serviço
+              Terms of Service
             </a>
           </p>
         </div>
@@ -224,6 +224,9 @@ const Login = () => {
             >
               {i18n.t("login.buttons.submit")}
             </Button>
+
+
+
           </form>
           <div className={"container-footer-form"}>
             <p>
