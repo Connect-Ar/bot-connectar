@@ -26,6 +26,7 @@ import "./style.css";
 import { openApi } from "../../services/api";
 import toastError from "../../errors/toastError";
 import moment from "moment";
+
 const Copyright = () => {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -68,11 +69,11 @@ const useStyles = makeStyles((theme) => ({
 
 const UserSchema = Yup.object().shape({
   name: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
-  password: Yup.string().min(5, "Too Short!").max(50, "Too Long!"),
-  email: Yup.string().email("Invalid email").required("Required"),
+    .min(2, "¡Demasiado corto!")
+    .max(50, "¡Demasiado largo!")
+    .required("Requerido"),
+  password: Yup.string().min(5, "¡Demasiado corta!").max(50, "¡Demasiado larga!"),
+  email: Yup.string().email("Correo electrónico inválido").required("Requerido"),
 });
 
 const SignUp = () => {
@@ -94,9 +95,9 @@ const SignUp = () => {
   };
 
   const [user] = useState(initialState);
-  const dueDate = moment().add(3, "day").format();
+  const dueDate = moment().add(3, "days").format();
   const handleSignUp = async (values) => {
-    Object.assign(values, { recurrence: "MENSAL" });
+    Object.assign(values, { recurrence: "MENSUAL" });
     Object.assign(values, { dueDate: dueDate });
     Object.assign(values, { status: "t" });
     Object.assign(values, { campaignsEnabled: true });
@@ -111,7 +112,7 @@ const SignUp = () => {
   };
 
   const [plans, setPlans] = useState([]);
-  const { getPlanList } = usePlans()
+  const { getPlanList } = usePlans();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -121,26 +122,22 @@ const SignUp = () => {
     }
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-}, []);
+  }, []);
 
   return (
-    <div className="geral-signup">
+    <div className="general-signup">
       <div className={"container-signup"}>
         <div className={"paper"}>
           <img src={logo} alt="Whats" className="img-logo-signup" />
 
-          <h4 className="h4">⚡ Cadastre-se</h4>
+          <h4 className="h4">⚡ Regístrate</h4>
           <div>
             <span className="span">
-              👋🏻 Comece seu <b>teste GRATUITO</b> de 3 dias do Connectar em
-              apenas 3 etapas!{" "}
-              <b>Não se preocupe, nós não pedimos dados do seu cartão.</b> 💳
+              👋🏻 Comienza tu <b>prueba GRATUITA</b> de 3 días de Connectar en
+              solo 3 pasos!{" "}
+              <b>No te preocupes, no pedimos los datos de tu tarjeta.</b> 💳
             </span>
           </div>
-          {/*<Typography component="h1" variant="h5">
-    			{i18n.t("signup.title")}
-    		</Typography>*/}
-          {/* <form className={classes.form} noValidate onSubmit={handleSignUp}> */}
 
           <Formik
             initialValues={user}
@@ -157,7 +154,7 @@ const SignUp = () => {
               <Form className={classes.form}>
                 <Grid container spacing={2}>
                   <Grid item xs={12}>
-                    <p>Qual o seu nome?</p>
+                    <p>¿Cuál es tu nombre?</p>
                     <Field
                       as={TextField}
                       margin="dense"
@@ -168,18 +165,18 @@ const SignUp = () => {
                       variant="outlined"
                       fullWidth
                       id="name"
-                      label="Seu Nome"
+                      label="Tu Nombre"
                     />
                   </Grid>
                   <Grid item xs={12}>
-                    <p>Seu número de Whatsapp</p>
+                    <p>Tu número de WhatsApp</p>
                     <Field
                       as={TextField}
                       margin="dense"
                       variant="outlined"
                       fullWidth
                       id="phone"
-                      label="Telefone com (DDD)"
+                      label="Teléfono con código de área (DDD)"
                       name="phone"
                       error={touched.email && Boolean(errors.email)}
                       helperText={touched.email && errors.email}
@@ -189,14 +186,14 @@ const SignUp = () => {
                   </Grid>
 
                   <Grid item xs={12}>
-                    <p>Seus dados de acesso</p>
+                    <p>Tus datos de acceso</p>
                     <Field
                       as={TextField}
                       variant="outlined"
                       margin="dense"
                       fullWidth
                       id="email"
-                      label={i18n.t("signup.form.email")}
+                      label="Correo Electrónico"
                       name="email"
                       error={touched.email && Boolean(errors.email)}
                       helperText={touched.email && errors.email}
@@ -214,7 +211,7 @@ const SignUp = () => {
                       name="password"
                       error={touched.password && Boolean(errors.password)}
                       helperText={touched.password && errors.password}
-                      label={i18n.t("signup.form.password")}
+                      label="Contraseña"
                       type="password"
                       id="password"
                       autoComplete="current-password"
@@ -222,14 +219,14 @@ const SignUp = () => {
                     />
                   </Grid>
                   <Grid item xs={12}>
-                    <InputLabel htmlFor="plan-selection">Plano</InputLabel>
+                    <InputLabel htmlFor="plan-selection">Plan</InputLabel>
                     <Field
                       as={Select}
                       margin="dense"
                       variant="outlined"
                       fullWidth
                       id="plan-selection"
-                      label="Plano"
+                      label="Plan"
                       name="planId"
                       required
                     >
@@ -279,14 +276,15 @@ const SignUp = () => {
             2024{" "}
           </p>
           <p className="p">
-            This site is protected by reCAPTCHA Enterprise and the Google{" "}
+            Este sitio está protegido por reCAPTCHA Enterprise y la{" "}
             <a href={"https://policies.google.com/privacy"} target={"_blank"}>
-              Privacy Policy
+              Política de Privacidad
             </a>{" "}
-            and{" "}
+            y los{" "}
             <a href={"https://policies.google.com/terms"} target={"_blank"}>
-              Terms of Service
-            </a>
+              Términos de Servicio
+            </a>{" "}
+            de Google.
           </p>
         </div>
         <Box mt={5}>{/* <Copyright /> */}</Box>
